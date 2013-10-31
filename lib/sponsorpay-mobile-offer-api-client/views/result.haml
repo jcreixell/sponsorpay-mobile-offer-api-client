@@ -2,6 +2,12 @@
 %hr
 %h2 Parameters:
 %ul
-  %li #{@uid}
-  %li #{@pub0}
-  %li #{@page}
+  %li UID: #{@uid}
+  %li Pub0: #{@pub0}
+  %li Page: #{@page}
+
+%h2 Result:
+- if @offers.count > 0
+- else
+  %div.no-offers
+    No offers

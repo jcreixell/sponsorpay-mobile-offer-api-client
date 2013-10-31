@@ -20,12 +20,16 @@ module SponsorpayMobileOfferApiClient
         timestamp: Time.now.utc.to_i,
         offer_types: ENV['OFFER_TYPES'],
       }
+      query.merge! hashkey: SecurityManager.sign_query(query, ENV['API_KEY'])
 
-      result = HTTParty.get @page,
-        query: SponsorpayMobileOfferApiClient::QueryBuilder.build_signed_query(query, ENV['API_KEY'])
+      response = HTTParty.get @page, query: query
 
-      p result
+      raise unless SecurityManager.verify_response(
+        response.body, 
+        ENV['API_KEY'], 
+        response.headers['X-Sponsorpay-Response-Signature'])
 
+      @offers = JSON.parse(response.body)['offers']
       haml :result
     end
 

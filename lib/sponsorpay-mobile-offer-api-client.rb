@@ -7,6 +7,6 @@ require 'json'
 require 'httparty'
 
 # load app
-require 'sponsorpay-mobile-offer-api-client/classes/query_builder'
+require 'sponsorpay-mobile-offer-api-client/classes/security_manager'
 require 'sponsorpay-mobile-offer-api-client/app'
 require 'sponsorpay-mobile-offer-api-client/controllers/main'
