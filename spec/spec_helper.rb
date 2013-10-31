@@ -1,13 +1,13 @@
 ENV['RACK_ENV'] = 'test'
 
+require_relative '../lib/sponsorpay-mobile-offer-api-client'
+
 require 'rspec'
 require 'rack/test'
 require 'webmock/rspec'
 
-require_relative '../app'
-
 def app
-  App
+  SponsorpayMobileOfferApiClient::App
 end
 
 RSpec.configure do |config|
