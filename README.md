@@ -1,6 +1,10 @@
 SponsorPay Mobile Offer API Client
 ==================================
 
+[![Build Status](https://travis-ci.org/jcreixell/sponsorpay-mobile-offer-api-client.png?branch=master)](https://travis-ci.org/jcreixell/sponsorpay-mobile-offer-api-client)
+[![Code Climate](https://codeclimate.com/github/jcreixell/sponsorpay-mobile-offer-api-client.png)](https://codeclimate.com/github/jcreixell/sponsorpay-mobile-offer-api-client)
+
+
 Setup
 -----
 
