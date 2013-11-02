@@ -1,7 +1,7 @@
 module SponsorpayMobileOfferApiClient
   class SecurityManager
 
-    def self.sign_query(query, api_key)
+    def self.query_signature(query, api_key)
       query_params = query.keys.sort.map{ |key| "#{key}=#{query[key]}" }
       hash_key_for(query_params, api_key)
     end
