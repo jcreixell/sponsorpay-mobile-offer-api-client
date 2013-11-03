@@ -15,5 +15,10 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     WebMock.disable_net_connect!(:allow_localhost => true)
+
+    IO.readlines("test.env").map{ |line| line.split('=', 2).map(&:strip) }.each do |(key, value)|
+      ENV[key] = value
+    end
   end
+
 end

@@ -13,7 +13,7 @@ Clone the repository:
     git clone git://github.com/jcreixell/sponsorpay-mobile-offer-api-client.git
     cd sponsorpay-mobile-offer-api-client
 
-Create .env file (see example.env)
+Create a development.env file in the root directory (see example.env)
 
 Install the required gems:
 
