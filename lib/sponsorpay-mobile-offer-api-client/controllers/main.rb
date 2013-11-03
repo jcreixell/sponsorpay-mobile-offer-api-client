@@ -20,7 +20,7 @@ module SponsorpayMobileOfferApiClient
         timestamp: Time.now.utc.to_i,
         offer_types: ENV['OFFER_TYPES'],
       }
-      query.merge! hashkey: SecurityManager.sign_query(query, ENV['API_KEY'])
+      query.merge! hashkey: SecurityManager.query_signature(query, ENV['API_KEY'])
 
       response = HTTParty.get @page, query: query
       raise Errors::InvalidSignatureError unless SecurityManager.verify_response(
