@@ -6,6 +6,14 @@
 
 %h2 Result:
 - if @offers.count > 0
+  - @offers.each do |offer|
+    %div.offer
+      %div.title
+        #{offer['title']}
+      %div.payout
+        #{offer['payout']}
+      %div.thumbnail
+        %img(src="#{offer['thumbnail']['lowres']}")
 - else
   %div.no-offers
     No offers
