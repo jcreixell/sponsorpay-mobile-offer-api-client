@@ -23,12 +23,10 @@ module SponsorpayMobileOfferApiClient
       query.merge! hashkey: SecurityManager.sign_query(query, ENV['API_KEY'])
 
       response = HTTParty.get @page, query: query
-
-      raise unless SecurityManager.verify_response(
+      raise Errors::InvalidSignatureError unless SecurityManager.verify_response(
         response.body, 
         ENV['API_KEY'], 
         response.headers['X-Sponsorpay-Response-Signature'])
-
       @offers = JSON.parse(response.body)['offers']
       haml :result
     end
